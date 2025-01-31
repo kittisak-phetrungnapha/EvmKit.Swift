@@ -1,4 +1,5 @@
 import EvmKit
+import Foundation
 import HsToolKit
 
 class Configuration {
@@ -6,10 +7,13 @@ class Configuration {
 
     let minLogLevel: Logger.Level = .error
 
-    let chain: Chain = .ethereum
-    let rpcSource: RpcSource = .ethereumInfuraWebsocket(projectId: "2a1306f1d12f4c109a4d4fb9be46b02e", projectSecret: "fc479a9290b64a84a15fa6544a130218")
-    let transactionSource: TransactionSource = .ethereumEtherscan(apiKeys: ["GKNHXT22ED7PRVCKZATFZQD1YI7FK9AAYE"])
+    let chain: Chain = .soneium
+    let rpcSource: RpcSource = .http(urls: [URL(string: "https://rpc.soneium.org")!], auth: nil)
+    let transactionSource: TransactionSource = TransactionSource(
+        name: "soneium.blockscout.com",
+        type: .etherscan(apiBaseUrl: "https://api.soneium.blockscout.com", txBaseUrl: "https://soneium.blockscout.com", apiKeys: ["apiKey"])
+    )
 
     let defaultsWords = "apart approve black  comfort steel spin real renew tone primary key cherry"
-    let defaultsWatchAddress = "0xDc3EAB13c26C0cA48843c16d1B27Ff8760515016"
+    let defaultsWatchAddress = "0xd1D441c2bB9341aFB370d5A0C4C66589a16c4d3F"
 }

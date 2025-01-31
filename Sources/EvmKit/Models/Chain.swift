@@ -174,4 +174,14 @@ public extension Chain {
             isEIP1559Supported: false
         )
     }
+    
+    static var soneium: Chain {
+        Chain(
+            id: 1868,
+            coinType: 60,
+            syncInterval: 15,
+            gasLimit: 10_000_000,
+            isEIP1559Supported: false
+        )
+    }
 }
